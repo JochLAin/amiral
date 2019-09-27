@@ -10,14 +10,19 @@ Amiral.configure({
     name: 'run',
     description: 'Echo some text',
     fields: [{
-        name: 'value',
+        name: 'name',
         label: 'What say',
         shortcut: 'v',
         required: false,
         argument: true,
+    }, {
+        name: 'toto',
+        label: 'Toto',
+        required: false,
+        default: false,
     }],
 }).then((props) => {
-    require('child_process').spawn('echo', ['-f', props.file, `"${props.value}"`], {
+    require('child_process').spawn('echo', ['-f', props.file, `"${props.name}"`], {
         stdio: 'inherit',
     });
 });
