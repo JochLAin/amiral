@@ -8,22 +8,16 @@ const Amiral = require('../index');
 
 Amiral.create({
     name: 'run',
-    description: 'Cow say some text',
+    description: 'Echo some text',
     fields: [{
         name: 'content',
-        label: 'What say the cow',
+        label: 'What say',
         shortcut: 'c',
         required: false,
         argument: true,
-    }, {
-        name: 'file',
-        label: 'Cowfile name',
-        shortcut: 'f',
-        required: false,
-        default: 'tux',
     }],
 }).then((props) => {
-    require('child_process').spawn('cowsay', ['-f', props.file, `"${props.content}"`], {
+    require('child_process').spawn('echo', ['-f', props.file, `"${props.content}"`], {
         stdio: 'inherit',
     });
 });
