@@ -6,18 +6,18 @@ const path = require('path');
 const { version } = require(path.resolve(__dirname, '..', 'package.json'));
 const Amiral = require('../index');
 
-Amiral.create({
+Amiral.configure({
     name: 'run',
     description: 'Echo some text',
     fields: [{
-        name: 'content',
+        name: 'value',
         label: 'What say',
-        shortcut: 'c',
+        shortcut: 'v',
         required: false,
         argument: true,
     }],
 }).then((props) => {
-    require('child_process').spawn('echo', ['-f', props.file, `"${props.content}"`], {
+    require('child_process').spawn('echo', ['-f', props.file, `"${props.value}"`], {
         stdio: 'inherit',
     });
 });
