@@ -38,7 +38,14 @@ Amiral.create({
         label: 'What say the cow',
         required: false,
         argument: true,
+    }, {
+        name: 'file',
+        label: 'What kind of cow',
+        required: false,
+        default: 'tux',
     }],
+}).then((props) => {
+    return child_process.spawn('cowsay', ['-f', props.file, props.content], { stdio: 'inherit' });
 });
 
 program.version(version, '-v, --version').parse(process.argv);
@@ -48,8 +55,8 @@ program.version(version, '-v, --version').parse(process.argv);
 
 ##### Command
 
-```json
-{
+```javascript
+const CommandSchema = {
     name: String,               // Command name used to be called in cli
     description: String,        // Command description used in help message
     help: String,               // Help message showing after command usage and options
@@ -59,8 +66,8 @@ program.version(version, '-v, --version').parse(process.argv);
 
 ##### Field
 
-```json
-{
+```javascript
+const FieldSchema = {
     label: String,              // Label used in question and field description
     name: String,               // Name of the field
     type: undefined,            // Specify the field type
