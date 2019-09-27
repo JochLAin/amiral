@@ -15,10 +15,6 @@
 
 ### Usage
 
-
-
-### Examples
-
 ```javascript
 // my_module/bin/index.js
 'use strict';
@@ -70,7 +66,7 @@ const CommandSchema = {
 const FieldSchema = {
     label: String,              // Label used in question and field description
     name: String,               // Name of the field
-    type: undefined,            // Specify the field type
+    type: undefined,            // Specify the field type (Boolean, Number, String, Object, Array, Map)
     required: Boolean,          // Specify if the field is required
     default: undefined,         // Default value
     value: undefined,           // Stored value (filled automatically)
