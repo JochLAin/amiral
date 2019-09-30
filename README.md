@@ -56,6 +56,7 @@ const CommandSchema = {
     name: String,               // Command name used to be called in cli
     description: String,        // Command description used in help message
     help: String,               // Help message showing after command usage and options
+    master: Boolean,            // Specify if command is the master command
     fields: [Field],            // Property that can be passed to command or prompted
 }
 ```

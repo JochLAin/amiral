@@ -7,12 +7,13 @@ const { version } = require(path.resolve(__dirname, '..', 'package.json'));
 const Amiral = require('../index');
 
 Amiral.configure({
-    name: 'run',
+    name: 'echo',
     description: 'Echo some text',
+    master: true,
     fields: [{
         name: 'name',
         label: 'What say',
-        shortcut: 'v',
+        shortcut: 'n',
         required: false,
         argument: true,
     }, {
