@@ -18,11 +18,12 @@ Amiral.configure({
     }, {
         name: 'toto',
         label: 'Toto',
+        type: Boolean,
         required: false,
         default: false,
     }],
 }).then((props) => {
-    require('child_process').spawn('echo', ['-f', props.file, `"${props.name}"`], {
+    require('child_process').spawn('echo', [`${props.name}`], {
         stdio: 'inherit',
     });
 });
