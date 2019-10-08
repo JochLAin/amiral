@@ -1,32 +1,29 @@
 #!/usr/bin/env node
 'use strict';
 
-const program = require('commander');
-const path = require('path');
-const { version } = require(path.resolve(__dirname, '..', 'package.json'));
 const Amiral = require('../index');
 
 Amiral.configure({
-    name: 'echo',
-    description: 'Echo some text',
-    master: true,
-    fields: [{
-        name: 'name',
-        label: 'What say',
-        shortcut: 'n',
-        required: false,
-        argument: true,
-    }, {
-        name: 'toto',
-        label: 'Toto',
-        type: Boolean,
-        required: false,
-        default: false,
-    }],
-}).then((props) => {
-    require('child_process').spawn('echo', [`${props.name}`], {
-        stdio: 'inherit',
+    name: 'hello',
+    description: 'Say hello',
+    version: '0.0.0',
+    fields: [
+        { name: 'world', label: 'Say hello to world', type: Boolean, default: true },
+        { name: 'uppercase', label: 'Say hello with uppercase', shortcut: 'u', type: Boolean },
+        { name: 'lowercase', label: 'Say hello with lowercase', shortcut: 'l', type: Boolean },
+    ],
+    commands: [{
+        name: 'to',
+        description: 'Say hello to someone',
+        fields: [
+            { name: 'name', label: 'Say hello to', argument: true },
+        ]
+    }]
+}).then((command) => {
+    console.log(command.name);
+    command.prompt().then((props) => {
+        console.log(props);
     });
+}).catch(error => {
+    throw error;
 });
-
-program.version(version, '-v, --version').parse(process.argv);

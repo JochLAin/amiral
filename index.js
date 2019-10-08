@@ -1,9 +1,10 @@
-const { Command, Field } = require('./lib');
+const { Command, Field, Program } = require('./lib');
 
-module.exports = { Command, Field };
+module.exports = { Command, Field, Program };
 module.exports.create = (props) => {
-    return new Command(props);
+    return new Program(props);
 };
-module.exports.configure = (props, program) => {
-    return module.exports.create(props).configure(program);
+module.exports.configure = (props) => {
+    const program = module.exports.create(props);
+    return program.configure();
 };

@@ -4,6 +4,7 @@
   "description": "Command line tool",
   "main": "index.js",
   "scripts": {
+    "start": "./tests/echo.js",
     "test": "./tests/index.js"
   },
   "repository": {
@@ -19,8 +20,8 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "commander": "^3.0.2",
-    "crieur": "^1.0.0",
-    "fractale": "^1.5.14",
+    "crieur": "^1.0.5",
+    "fractale": "^1.5.18",
     "inquirer": "^7.0.0"
   }
 }
