@@ -1,6 +1,6 @@
 {
-  "name": "amiral",
-  "version": "0.3.2",
+  "name": "sergent",
+  "version": "0.1.0",
   "description": "Command line tool",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
   "homepage": "https://github.com/JochLAin/amiral#readme",
   "dependencies": {
     "chalk": "^2.4.2",
-    "commander": "^3.0.2",
+    "caporal": "^3.0.2",
     "crieur": "^1.0.5",
     "fractale": "^1.5.18",
     "inquirer": "^7.0.0"
