@@ -10,23 +10,26 @@ Sergent.run({
     version: '0.0.0',
     fields: [
         { name: 'world', label: 'Say hello to world', type: Boolean, default: true },
-        { name: 'upper', label: 'Say hello with uppercase', shortcut: 'u', type: Boolean },
-        { name: 'lower', label: 'Say hello with lowercase', shortcut: 'l', type: Boolean },
+        { name: 'upper', label: 'Say hello with uppercase', shortcut: 'u', type: Boolean, asked: true, default: false },
+        { name: 'lower', label: 'Say hello with lowercase', shortcut: 'l', type: Boolean, asked: true, default: false },
     ],
     commands: [{
         name: 'to',
         description: 'Say hello to someone',
         fields: [
-            { name: 'name', label: 'Say hello to', argument: true, required: true },
-        ]
+            { name: 'name', label: 'Say hello to', argument: true, asked: true },
+        ],
+        action: (command) => {
+            const props = command.parse();
+            const value = props.name;
+            console.log(`Hello ${value}`);
+        }
     }]
 }).then((command) => {
     const props = command.parse();
-    console.log(props);
-    let value = props.name || (props.world ? 'world' : 'you');
+    let value = props.world ? 'World' : 'You';
     if (props.upper) value = value.toUpperCase();
     if (props.lower) value = value.toLowerCase();
-
     console.log(`Hello ${value}`);
 }).catch(error => {
     crieur.error(error);
