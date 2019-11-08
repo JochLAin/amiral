@@ -20,8 +20,8 @@
   "dependencies": {
     "caporal": "^1.3.0",
     "chalk": "^2.4.2",
-    "crieur": "^1.0.8",
-    "fractale": "^1.6.0",
+    "crieur": "^1.0.9",
+    "fractale": "^1.7.0",
     "inquirer": "^7.0.0"
   }
 }
