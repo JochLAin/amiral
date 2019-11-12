@@ -1,6 +1,6 @@
 {
   "name": "sergent",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "description": "Command line tool",
   "main": "index.js",
   "scripts": {
